@@ -91,8 +91,8 @@ class EBSW(Strategy):
                 keys=[]
                 vals=[]
                 
-                col_name_pos_ch=f'pos_ch_{k}_up_{up_level}_dn_{down_level}_dur_{self.duration}'
-                col_name_pos=f'pos_{k}_up_{up_level}_dn_{down_level}_dur_{self.duration}'
+                col_name_pos_ch=f'pos_ch_EBSW_{k}_{up_level}_{down_level}_{self.duration}'
+                col_name_pos=f'pos_EBSW_{k}_{up_level}_{down_level}_{self.duration}'
                 df[col_name_pos_ch]=np.nan
                 df[col_name_pos_ch]=np.where((df[self.calc_col_name]>down_level)&(df[self.calc_col_name].shift()<down_level),1,df[col_name_pos_ch])
                 df[col_name_pos_ch]=np.where((df[self.calc_col_name]<up_level)&(df[self.calc_col_name].shift()>up_level),-1,df[col_name_pos_ch])
